@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/style.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <title>MinesBot</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Подключение jQuery -->
+</head>
+<body>
+
+<div class='header'>
+    <div class='container'>
+        <div class='header-line'>
+            <div class="nav">
+                <b class="textik1" id="game">AbuzPro{{ count }}</b>
+            </div>
+
+            <div class="signal">
+                <img id="MyImage"  src="{{ main }}" alt="">
+            </div>
+
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+
+            <div class="colvo">
+                <b class="textik2">КОЛИЧЕСТВО МИН</b>
+            </div>
+        </div>
+        <div class="system">
+            <div class="minus">
+                <button class="minus-button" id="minusbtn"></button>
+                <script>
+                    $(document).ready(function() {
+                    $('#minusbtn').click(function() {
+                        $.ajax({
+                            type: 'POST',
+                            url: '/minus', // URL-адрес функции Flask для смены изображения
+                            success: function(response) {
+                                $('#num').text(response.new_number);
+                            },
+                            error: function(error) {
+                                console.log(error);
+                            }
+                            });
+                        });
+                    });
+                </script>
+            </div>
+
+            <div class="number">
+                <b id="num">1</b>
+            </div>
+
+            <div class="plus">
+                <button class="plus-button" id="plusbtn"></button>
+                <script>
+                    $(document).ready(function() {
+                    $('#plusbtn').click(function() {
+                        $.ajax({
+                            type: 'POST',
+                            url: '/plus', // URL-адрес функции Flask для смены изображения
+                            success: function(response) {
+                                $('#num').text(response.new_number);
+                            },
+                            error: function(error) {
+                                console.log(error);
+                            }
+                            });
+                        });
+                    });
+                </script>
+            </div>
+        </div>
+        <div class="btn">
+            <button class="button" id="myButton" onclick="startProgressBar()">Получить сигнал</button>
+            <script src="{{ url_for('static', filename='../static/script.js')}}"></script>
+            <script>
+                    $(document).ready(function() {
+                    $('#myButton').click(function() {
+                        $.ajax({
+                            type: 'POST',
+                            url: '/get', // URL-адрес функции Flask для смены изображения
+                            success: function(response) {
+                                $('#MyImage').attr('src', response.new_image);
+                                $('#game').text(response.count);
+                            },
+                            error: function(error) {
+                                console.log(error);
+                            },
+                        });
+                    });
+                });
+            </script>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

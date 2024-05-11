@@ -1,0 +1,128 @@
+
+body {
+    margin: 0;
+    font-family: "RubikOne";
+}
+
+.nav {
+    padding-top: 20px;
+}
+
+.signal {
+    padding-top: 10px;
+}
+
+.colvo {
+    padding-top: 20px;
+} 
+
+
+.header{
+    text-align: center;
+    color: white;
+    background-image: url(./assets/bg.png);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.textik1 {
+    font-size: 15px;
+    font-weight: 500;
+    -webkit-text-stroke: 0.1px black;
+}
+
+.textik2 {
+    font-size: 25px;
+    font-weight: 500;
+    -webkit-text-stroke: 1px black;
+}
+
+.system {
+    padding-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-spacing: 10px;
+    padding-bottom: 40px;
+}
+
+.plus {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.number {
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 45px;
+    -webkit-text-stroke: 1px black; /* Ширина и цвет контура */
+}
+
+.minus {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.button {
+    font-family: "RubikOne";
+    background-color: #FF7A00;
+    text-decoration: none;
+    color: white;
+    padding: 16px 22px;
+    font-size: 25px;
+    font-weight: 300;
+    border-radius: 20px;
+}
+.button:active {
+    transform: scale(0.95);
+  }
+
+.plus-button {
+    width: 50px;
+    height: 50px;
+    border: none;
+    background-image: url('./assets/plus.png');
+    background-size: cover;
+    border-radius: 100px;
+  }
+.plus-button:active {
+    transform: scale(0.90);
+  }
+
+
+.minus-button {
+    width: 50px;
+    height: 50px;
+    border: none;
+    background-image: url('./assets/minus.png');
+    background-size: cover;
+    border-radius: 100px;
+  }
+.minus-button:active {
+    transform: scale(0.90);
+  }
+
+.progress-bar-container {
+    margin-top: 20px;
+    width: 150px; /* Ширина контейнера прогресс-бара */
+    margin: 0 auto; /* Центрирование контейнера по горизонтали */
+    background-color: #dbdbdb;
+    text-align: center; /* Выравнивание содержимого по центру */
+    border-radius: 100px;
+}
+
+.progress-bar {
+    margin-top: 20px;
+    height: 13px;
+    border-radius: 100px;
+    background-color: #2781aa;
+    width: 0;
+    /* transition: width 3s; Анимация заполнения прогресс-бара за 3 секунды */
+}
+
+
+@font-face {
+    font-family: "RubikOne";
+    src: url(./assets/fonts/RubikOne-Regular.ttf);
+}
